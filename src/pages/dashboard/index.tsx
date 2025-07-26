@@ -3,10 +3,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
 import Input from "@/components/input";
-import ResultLine from "@/components/result-line";
 import { useUsersListQuery } from "@/api/users";
-import { useUserQuery } from "@/api/user";
 import useDebounce from "@/hooks/useDebounse";
+import SearchDropdown from "@/components/search-dropdown";
 
 import styles from "./dashboard.module.scss";
 
@@ -15,32 +14,33 @@ const Dashboard = () => {
 
   const debouncedValue = useDebounce<string>(searchValue, 500);
 
-  // const { data: usersList } = useUsersListQuery();
-  const {
-    data: user,
-    isLoading,
-    isError,
-  } = useUserQuery(debouncedValue, { skip: !debouncedValue });
+  const { data: usersList, isFetching } = useUsersListQuery(debouncedValue, {
+    skip: !debouncedValue,
+  });
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setSearchValue(event.target.value);
   };
 
+  const inputWrapperStyle = debouncedValue ? styles.inputWrapper : "";
+
   return (
     <div className={styles.dashboard}>
-      <div>
-        <Input
-          icon={<FontAwesomeIcon icon={faMagnifyingGlass} />}
-          placeholder="search user"
-          onChange={(e) => handleChange(e)}
-        />
+      <h1>Find the user</h1>
+      <div className={styles.searchWrapper}>
+        <div className={inputWrapperStyle}>
+          <Input
+            icon={<FontAwesomeIcon icon={faMagnifyingGlass} />}
+            placeholder="search user"
+            onChange={(e) => handleChange(e)}
+          />
+        </div>
         {debouncedValue && (
-          <ResultLine
-            to={`/${searchValue}`}
-            icon={user?.avatar_url}
-            name={user?.login}
-            isLoading={isLoading}
-            isError={isError}
+          <SearchDropdown
+            userList={usersList?.items}
+            errorMessage="User not found"
+            isError={usersList?.items.length === 0}
+            isLoading={isFetching}
           />
         )}
       </div>

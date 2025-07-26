@@ -1,11 +1,11 @@
 .label {
-  width: 100%;
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  border: 1px solid #000;
+  border: 1px solid #ecedf1;
   border-radius: 0.5rem;
   padding: 0.5rem;
+  background-color: #f6f7f9;
 
   &:has(input:focus) {
     border-color: #4e42f5;
@@ -19,5 +19,7 @@
     width: 100%;
     border: none;
     outline: none;
+    color: #000;
+    background-color: #f6f7f9;
   }
 }

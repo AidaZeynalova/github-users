@@ -1,8 +1,39 @@
+body {
+  margin: 0;
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("/fonts/Roboto-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 .dashboard {
   width: 100%;
   height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  padding-top: 50px;
+  background-color: #f6f7fb;
+
+  h1 {
+    font-family: "Roboto", sans-serif;
+  }
+}
+.searchWrapper {
+  width: 50%;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #fff;
+  border: 1px solid #ecedf1;
+}
+.inputWrapper {
+  padding-bottom: 20px;
+  border-bottom: 1px solid #ecedf1;
+}
+.listWrapper {
+  max-height: 400px;
+  overflow-y: scroll;
+  padding: 0;
 }
