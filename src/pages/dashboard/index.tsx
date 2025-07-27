@@ -1,20 +1,24 @@
-import { ChangeEvent, useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import { FC, ChangeEvent, useState } from "react";
 
-import Input from "@/components/input";
+import Input from "@/components/ui/input";
 import { useUsersListQuery } from "@/api/users";
 import useDebounce from "@/hooks/useDebounse";
 import SearchDropdown from "@/components/search-dropdown";
+import { Search } from "@/assets/svg/search";
+import Error from "@/components/error";
 
 import styles from "./dashboard.module.scss";
 
-const Dashboard = () => {
-  const [searchValue, setSearchValue] = useState("");
+const Dashboard: FC = () => {
+  const [searchValue, setSearchValue] = useState<string>("");
 
   const debouncedValue = useDebounce<string>(searchValue, 500);
 
-  const { data: usersList, isFetching } = useUsersListQuery(debouncedValue, {
+  const {
+    data: usersList,
+    isFetching,
+    isError,
+  } = useUsersListQuery(debouncedValue, {
     skip: !debouncedValue,
   });
 
@@ -24,20 +28,22 @@ const Dashboard = () => {
 
   const inputWrapperStyle = debouncedValue ? styles.inputWrapper : "";
 
+  if (isError) return <Error message="an error occurred" />;
+
   return (
     <div className={styles.dashboard}>
       <h1>Find the user</h1>
       <div className={styles.searchWrapper}>
         <div className={inputWrapperStyle}>
           <Input
-            icon={<FontAwesomeIcon icon={faMagnifyingGlass} />}
+            icon={<Search />}
             placeholder="search user"
             onChange={(e) => handleChange(e)}
           />
         </div>
         {debouncedValue && (
           <SearchDropdown
-            userList={usersList?.items}
+            userList={usersList?.items || []}
             errorMessage="User not found"
             isError={usersList?.items.length === 0}
             isLoading={isFetching}

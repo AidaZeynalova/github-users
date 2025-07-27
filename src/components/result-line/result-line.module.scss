@@ -1,3 +1,9 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 .resultLineWrapper {
   position: relative;
   width: 100%;
@@ -18,7 +24,7 @@
     bottom: -0.5rem;
     display: block;
     width: 100%;
-    height: 1px;
+    height: 0.06rem;
     background-color: #ecedf1;
   }
 

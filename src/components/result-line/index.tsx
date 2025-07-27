@@ -13,7 +13,7 @@ const ResultLine: FC<ResultLineProps> = ({ icon, name, to }) => {
   return (
     <li className={styles.resultLineWrapper}>
       <Link to={to}>
-        <div>{icon && <img src={icon} alt="" />}</div>
+        <div>{icon && <img src={icon} alt={name} />}</div>
         <div className={styles.name}>{name}</div>
       </Link>
     </li>

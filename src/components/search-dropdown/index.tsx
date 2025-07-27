@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, memo } from "react";
 
 import ResultLine from "@/components/result-line";
 import Loading from "@/components/loading";
@@ -31,6 +31,7 @@ const SearchDropdown: FC<SearchDropdownProps> = ({
       {userList.map((item) => {
         return (
           <ResultLine
+            key={item.login}
             to={`/${item.login}`}
             icon={item.avatar_url}
             name={item.login}
@@ -41,4 +42,4 @@ const SearchDropdown: FC<SearchDropdownProps> = ({
   );
 };
 
-export default SearchDropdown;
+export default memo(SearchDropdown);

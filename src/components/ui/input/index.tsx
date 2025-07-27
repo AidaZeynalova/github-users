@@ -1,4 +1,4 @@
-import { FC, ReactNode, InputHTMLAttributes } from "react";
+import { FC, ReactNode, InputHTMLAttributes, memo } from "react";
 
 import styles from "./input.module.scss";
 
@@ -22,4 +22,4 @@ const Input: FC<InputProps> = ({
   );
 };
 
-export default Input;
+export default memo(Input);

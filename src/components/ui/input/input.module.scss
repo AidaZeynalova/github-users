@@ -1,8 +1,14 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 .label {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  border: 1px solid #ecedf1;
+  border: 0.06rem solid #ecedf1;
   border-radius: 0.5rem;
   padding: 0.5rem;
   background-color: #f6f7f9;

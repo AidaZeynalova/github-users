@@ -1,0 +1,47 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("/fonts/Roboto-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.button {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  text-decoration: none;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: 0.3s;
+  font-family: "Roboto", sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.primary {
+  color: #fff;
+  background-color: #3841e6;
+
+  &:hover {
+    background-color: #7278f3;
+  }
+}
+
+.secondary {
+  background-color: #f8f8f9;
+  color: #23243e;
+
+  &:hover {
+    background-color: #23243e;
+    color: #f8f8f9;
+  }
+}
