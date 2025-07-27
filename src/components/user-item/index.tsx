@@ -1,17 +1,17 @@
 import { FC } from "react";
 import { Link } from "react-router-dom";
 
-import styles from "./result-line.module.scss";
+import styles from "./user-item.module.scss";
 
-interface ResultLineProps {
+interface UserItemProps {
   icon: string;
   name: string;
   to: string;
 }
 
-const ResultLine: FC<ResultLineProps> = ({ icon, name, to }) => {
+const UserItem: FC<UserItemProps> = ({ icon, name, to }) => {
   return (
-    <li className={styles.resultLineWrapper}>
+    <li className={styles.userItem}>
       <Link to={to}>
         <div>{icon && <img src={icon} alt={name} />}</div>
         <div className={styles.name}>{name}</div>
@@ -20,4 +20,4 @@ const ResultLine: FC<ResultLineProps> = ({ icon, name, to }) => {
   );
 };
 
-export default ResultLine;
+export default UserItem;

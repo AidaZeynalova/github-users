@@ -28,27 +28,22 @@ body {
       font-size: 1.5rem;
     }
   }
-}
-.searchWrapper {
-  width: 50%;
-  padding: 1.25rem;
-  border-radius: 0.5rem;
-  background-color: #fff;
-  border: 0.06rem solid #ecedf1;
-  font-family: "Roboto", sans-serif;
-  font-weight: 500;
+  .searchWrapper {
+    width: 50%;
+    padding: 1.25rem;
+    border-radius: 0.5rem;
+    background-color: #fff;
+    border: 0.06rem solid #ecedf1;
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
 
-  @media (max-width: 992px) {
-    width: 90%;
-    padding: 0.75rem;
+    @media (max-width: 992px) {
+      width: 90%;
+      padding: 0.75rem;
+    }
   }
-}
-.inputWrapper {
-  padding-bottom: 1.5rem;
-  border-bottom: 0.06rem solid #ecedf1;
-}
-.listWrapper {
-  max-height: 25rem;
-  overflow-y: scroll;
-  padding: 0;
+  .inputWrapper {
+    padding-bottom: 1.5rem;
+    border-bottom: 0.06rem solid #ecedf1;
+  }
 }

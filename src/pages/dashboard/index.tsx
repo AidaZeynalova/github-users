@@ -3,9 +3,9 @@ import { FC, ChangeEvent, useState } from "react";
 import Input from "@/components/ui/input";
 import { useUsersListQuery } from "@/api/users";
 import useDebounce from "@/hooks/useDebounse";
-import SearchDropdown from "@/components/search-dropdown";
+import UserList from "@/components/user-list";
 import { Search } from "@/assets/svg/search";
-import Error from "@/components/error";
+import Error from "@/components/ui/error";
 
 import styles from "./dashboard.module.scss";
 
@@ -42,7 +42,7 @@ const Dashboard: FC = () => {
           />
         </div>
         {debouncedValue && (
-          <SearchDropdown
+          <UserList
             userList={usersList?.items || []}
             errorMessage="User not found"
             isError={usersList?.items.length === 0}

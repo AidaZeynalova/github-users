@@ -8,9 +8,9 @@ interface UserInfoProps {
   html_url: string;
 }
 
-const usersApi = baseApi.injectEndpoints({
+const userApi = baseApi.injectEndpoints({
   endpoints: (build) => ({
-    user: build.query<UserInfoProps, string | undefined>({
+    userInfo: build.query<UserInfoProps, string | undefined>({
       query: (userName) => ({
         url: `/users/${userName}`,
         method: "GET",
@@ -19,4 +19,4 @@ const usersApi = baseApi.injectEndpoints({
   }),
 });
 
-export const { useUserQuery } = usersApi;
+export const { useUserInfoQuery } = userApi;

@@ -1,23 +1,23 @@
 import { FC, memo } from "react";
 
-import ResultLine from "@/components/result-line";
-import Loading from "@/components/loading";
-import Error from "@/components//error";
+import UserItem from "@/components/user-item";
+import Loading from "@/components/ui/loading";
+import Error from "@/components/ui/error";
 
-import styles from "./search-dropdown.module.scss";
+import styles from "./user-list.module.scss";
 
 interface UserProps {
   login: string;
   avatar_url: string;
 }
-interface SearchDropdownProps {
+interface UserListProps {
   userList: UserProps[];
   isLoading: boolean;
   isError: boolean;
   errorMessage: string;
 }
 
-const SearchDropdown: FC<SearchDropdownProps> = ({
+const UserList: FC<UserListProps> = ({
   userList,
   isLoading,
   isError,
@@ -30,7 +30,7 @@ const SearchDropdown: FC<SearchDropdownProps> = ({
     <ul className={styles.listWrapper}>
       {userList.map((item) => {
         return (
-          <ResultLine
+          <UserItem
             key={item.login}
             to={`/${item.login}`}
             icon={item.avatar_url}
@@ -42,4 +42,4 @@ const SearchDropdown: FC<SearchDropdownProps> = ({
   );
 };
 
-export default memo(SearchDropdown);
+export default memo(UserList);

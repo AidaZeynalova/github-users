@@ -1,9 +1,9 @@
 import { FC } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
-import { useUserQuery } from "@/api/user";
-import Loading from "@/components/loading";
-import Error from "@/components/error";
+import { useUserInfoQuery } from "@/api/user";
+import Loading from "@/components/ui/loading";
+import Error from "@/components/ui/error";
 import Button from "@/components/ui/button";
 
 import styles from "./user-info.module.scss";
@@ -12,7 +12,7 @@ const UserInfo: FC = () => {
   const { userName } = useParams<{ userName: string }>();
   const navigate = useNavigate();
 
-  const { data: userData, isLoading, isError } = useUserQuery(userName);
+  const { data: userData, isLoading, isError } = useUserInfoQuery(userName);
 
   if (isLoading) return <Loading fullSize />;
   if (!userName || isError || !userData)
@@ -21,7 +21,7 @@ const UserInfo: FC = () => {
   return (
     <div className={styles.userInfo}>
       <h1>User details</h1>
-      <div className={styles.userInfoWrapper}>
+      <div className={styles.wrapper}>
         <div className={styles.avatar}>
           <img src={userData.avatar_url} alt={userData.name} />
         </div>
@@ -35,7 +35,7 @@ const UserInfo: FC = () => {
             {userData.bio || "No information about biography"}
           </div>
           <div>
-            <span className={styles.fieldTitle}>Number of repositories: </span>
+            <span className={styles.fieldTitle}>Number of repositories:</span>
             {userData.public_repos}
           </div>
           <div className={styles.buttonsWrapper}>
