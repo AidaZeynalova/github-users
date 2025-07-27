@@ -1,6 +1,6 @@
 import { baseApi } from ".";
 
-interface UserInfoProps {
+export interface UserInfoProps {
   avatar_url: string;
   name: string;
   bio: string;
@@ -18,5 +18,7 @@ const userApi = baseApi.injectEndpoints({
     }),
   }),
 });
+
+export default userApi;
 
 export const { useUserInfoQuery } = userApi;

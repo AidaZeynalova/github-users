@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "jest"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.8.2",
@@ -18,6 +19,10 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.30.1",
+    "@testing-library/jest-dom": "^6.6.4",
+    "@testing-library/react": "^16.3.0",
+    "@types/css-modules": "^1.0.5",
+    "@types/jest": "^30.0.0",
     "@types/node": "^24.1.0",
     "@types/react": "^19.1.8",
     "@types/react-dom": "^19.1.6",
@@ -26,9 +31,16 @@
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.20",
     "globals": "^16.3.0",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^30.0.5",
+    "jest-environment-jsdom": "^30.0.5",
+    "msw": "^1.3.5",
+    "sass": "^1.89.2",
     "sass-embedded": "^1.89.2",
+    "ts-jest": "^29.4.0",
     "typescript": "~5.8.3",
     "typescript-eslint": "^8.35.1",
-    "vite": "^7.0.4"
+    "vite": "^7.0.4",
+    "whatwg-fetch": "^3.6.20"
   }
 }

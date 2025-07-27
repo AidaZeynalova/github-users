@@ -6,6 +6,9 @@
   ],
   "compilerOptions": {
     "baseUrl": "./",
+    "composite": true,
+    "types": ["jest", "node", "@testing-library/jest-dom"],
+    "jsx": "react-jsx",
     "paths": {
       "@/*": ["src/*"]
     }
